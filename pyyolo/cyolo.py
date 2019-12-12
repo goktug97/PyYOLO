@@ -4,6 +4,22 @@ from ctypes import *
 
 import numpy as np
 
+import os
+import sys
+
+try:
+    shared_library = None
+    shared_library = os.environ['LIB_DARKNET']
+    if not os.path.exists(shared_library):
+            raise ValueError('Path "{shared_library}" does not exist.')
+    else:
+        import fnmatch
+        if not fnmatch.fnmatch(shared_library, '*.so'):
+            raise ValueError(f'{shared_library} is not a shared_library')
+except KeyError as exception:
+    sys.exit('LIB_DARKNET variable is not set.')
+except ValueError as exception:
+    sys.exit(exception)
 
 class BOX(Structure):
     _fields_ = [('x', c_float),
@@ -32,7 +48,7 @@ class METADATA(Structure):
     _fields_ = [('classes', c_int),
                 ('names', POINTER(c_char_p))]
 
-lib = CDLL(options.Detector.lib, RTLD_GLOBAL)
+lib = CDLL(shared_library, RTLD_GLOBAL)
 lib.network_width.argtypes = [c_void_p]
 lib.network_width.restype = c_int
 lib.network_height.argtypes = [c_void_p]
