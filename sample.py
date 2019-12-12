@@ -2,9 +2,9 @@ import cv2
 import pyyolo
 
 def main():
-    detector = pyyolo.YOLO("/home/goktug/libraries/retracker/models/yolov3-spp.cfg",
-                           "/home/goktug/libraries/retracker/models/yolov3-spp.weights",
-                           "/home/goktug/libraries/retracker/models/coco.data",
+    detector = pyyolo.YOLO("./models/yolov3-spp.cfg",
+                           "./models/yolov3-spp.weights",
+                           "./models/coco.data",
                            detection_threshold = 0.5,
                            hier_threshold = 0.5,
                            nms_threshold = 0.45)
@@ -13,7 +13,8 @@ def main():
     while True:
         ret, frame = cap.read()
         dets = detector.detect(frame)
-        for det in dets:
+        for i, det in enumerate(dets):
+            print(f'Detection: {i}, {det}')
             xmin, ymin, xmax, ymax = det.to_xyxy()
             cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 0, 255))
         cv2.imshow('cvwindow', frame)

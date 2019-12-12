@@ -14,7 +14,9 @@ class BBox(np.ndarray):
 
     def __str__(self):
         x, y, w, h = self.view()
-        return f'x: {x}, y: {y}, w: {w}, h: {h}, probability: {self.prob}, name: {self.name}'
+        string = f'x: {x}, y: {y}, w: {w}, h: {h}, '
+        string += f'probability: {self.prob}, name: {self.name}'
+        return string
 
     def to_xyxy(self):
         x, y, w, h = self.view()
