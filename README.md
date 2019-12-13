@@ -21,6 +21,12 @@ adding this to your rc file. `export LIB_DARKNET=<path_to_libdarknet.so>`
 
 #### PyYOLO
 
+##### From PyPi
+``` shell
+pip3 install pyyolo --user
+```
+
+##### From source
 ``` shell
 git clone https://github.com/goktug97/PyYOLO
 cd PyYOLO
