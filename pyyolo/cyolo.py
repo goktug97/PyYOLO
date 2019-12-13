@@ -11,7 +11,7 @@ try:
     shared_library = None
     shared_library = os.environ['LIB_DARKNET']
     if not os.path.exists(shared_library):
-            raise ValueError('Path "{shared_library}" does not exist.')
+            raise ValueError(f'Path "{shared_library}" does not exist.')
     else:
         import fnmatch
         if not fnmatch.fnmatch(shared_library, '*.so'):
