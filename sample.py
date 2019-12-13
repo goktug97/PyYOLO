@@ -12,7 +12,7 @@ def main():
     cap = cv2.VideoCapture(0)
     while True:
         ret, frame = cap.read()
-        dets = detector.detect(frame)
+        dets = detector.detect(frame, rgb=False)
         for i, det in enumerate(dets):
             print(f'Detection: {i}, {det}')
             xmin, ymin, xmax, ymax = det.to_xyxy()

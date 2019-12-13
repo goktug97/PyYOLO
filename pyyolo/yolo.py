@@ -69,12 +69,13 @@ class YOLO(object):
         self.nms = nms_threshold
 
 
-    def detect(self, image):
+    def detect(self, image, rgb=False):
         original_h, original_w, _ = image.shape
         image = cv2.resize(image,
                            (self.width, self.height),
-                           interpolation=cv2.INTER_LINEAR)[:,:,::-1]
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+                           interpolation=cv2.INTER_CUBIC)[:,:,::-1]
+        if not rgb:
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         im, arr = array_to_image(image)
 
         num = c_int(0)
