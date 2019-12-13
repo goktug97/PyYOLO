@@ -100,5 +100,25 @@ BBox([ 20,  40, 200, 400])
 #### YOLO Class
 - detect function returns list of BBox Instances. See [sample.py](https://github.com/goktug97/PyYOLO/blob/master/sample.py) for example usage.
 
+```python-console
+Python 3.8.0 (default, Oct 23 2019, 18:51:26)
+[GCC 9.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pyyolo
+>>> detector = pyyolo.YOLO("./models/yolov3-spp.cfg",
+                           "./models/yolov3-spp.weights",
+                           "./models/coco.data",
+                           detection_threshold = 0.5,
+                           hier_threshold = 0.5,
+                           nms_threshold = 0.45)
+>>> import cv2
+>>> img = cv2.imread('test.png')
+>>> detector.detect(img)
+[BBox([ 29, 134, 461, 339])]
+>>> dets = detector.detect(img)
+>>> print(dets[0])
+x: 29, y: 134, w: 461, h: 339, probability: 0.6172798275947571, name: person
+```
+
 ### License
 PyYOLO is licensed under the MIT License.

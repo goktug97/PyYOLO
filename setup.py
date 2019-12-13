@@ -8,7 +8,7 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='pyyolo',
-    version='0.1',
+    version='0.1.1',
     description='Python Darknet YOLO Wrapper',
     author = 'Göktuğ Karakaşlı',
     author_email='karakasligk@gmail.com',
