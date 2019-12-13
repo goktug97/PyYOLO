@@ -1,6 +1,7 @@
 Python Wrapper for the YOLO
 ===================================
 
+![logo](https://raw.githubusercontent.com/goktug97/PyYOLO/master/pyyologo.png)
 
 ### Installation
 
