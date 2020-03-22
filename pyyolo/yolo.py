@@ -6,6 +6,8 @@ import numpy as np
 
 class BBox(np.ndarray):
     def __new__(cls, x, y, w, h, prob, name):
+        cls.name = ""
+        cls.prob = 0
         obj = np.asarray([x, y, w, h]).view(cls)
         obj.x, obj.y, obj.w, obj.h = obj.view()
         obj.name = name
