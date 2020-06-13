@@ -4,6 +4,7 @@ import cv2
 from .cyolo import *
 import numpy as np
 
+
 class BBox(np.ndarray):
     def __new__(cls, x, y, w, h, prob, name):
         cls.name = ""
@@ -28,6 +29,7 @@ class BBox(np.ndarray):
         if obj is None: return
 
 
+# https://github.com/AlexeyAB/darknet/blob/master/darknet.py
 class YOLO(object):
     def __init__(self, config_path,
                  weights_path,
@@ -118,5 +120,3 @@ class YOLO(object):
 
         free_detections(dets, num)
         return res
-
-    
