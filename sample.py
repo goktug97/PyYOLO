@@ -2,8 +2,8 @@ import cv2
 import pyyolo
 
 def main():
-    detector = pyyolo.YOLO("./models/yolov3-spp.cfg",
-                           "./models/yolov3-spp.weights",
+    detector = pyyolo.YOLO("./models/yolov4.cfg",
+                           "./models/yolov4.weights",
                            "./models/coco.data",
                            detection_threshold = 0.5,
                            hier_threshold = 0.5,

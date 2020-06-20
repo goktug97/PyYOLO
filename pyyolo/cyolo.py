@@ -29,12 +29,14 @@ class BOX(Structure):
 
 
 class DETECTION(Structure):
-    _fields_ = [('bbox', BOX),
-                ('classes', c_int),
-                ('prob', POINTER(c_float)),
-                ('mask', POINTER(c_float)),
-                ('objectness', c_float),
-                ('sort_class', c_int)]
+    _fields_ = [("bbox", BOX),
+                ("classes", c_int),
+                ("prob", POINTER(c_float)),
+                ("mask", POINTER(c_float)),
+                ("objectness", c_float),
+                ("sort_class", c_int),
+                ("uc", POINTER(c_float)),
+                ("points", c_int)]
 
 
 class IMAGE(Structure):
@@ -47,6 +49,7 @@ class IMAGE(Structure):
 class METADATA(Structure):
     _fields_ = [('classes', c_int),
                 ('names', POINTER(c_char_p))]
+
 
 lib = CDLL(shared_library, RTLD_GLOBAL)
 lib.network_width.argtypes = [c_void_p]
