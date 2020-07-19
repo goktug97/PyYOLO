@@ -8,14 +8,14 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='pyyolo',
-    version='0.1.5',
+    version='0.1.6',
     description='Easy to use Python wrapper for YOLO Real-Time Object\
 Detection Library',
     author = 'Göktuğ Karakaşlı',
     author_email='karakasligk@gmail.com',
     license='MIT',
     url='https://github.com/goktug97/PyYOLO',
-    download_url='https://github.com/goktug97/PyYOLO/archive/v0.1.4.tar.gz',
+    download_url='https://github.com/goktug97/PyYOLO/archive/v0.1.6.tar.gz',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=['pyyolo'],
